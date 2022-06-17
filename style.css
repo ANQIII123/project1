@@ -1,0 +1,13 @@
+#map {
+    height: 100vh;
+};
+
+#wholeMap{
+    position:relative;
+}
+#searchContainer {
+    position:absolute;
+    z-index: 314159;
+    margin-top:15px;
+    margin-left:45px;
+}
