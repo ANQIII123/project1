@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', async function () {
 
     let markerClusterLayer = L.markerClusterGroup(); 
 
-    markerClusterLayer.addTo(map);
+  
     searchResultLayer.addTo(map)
   
     navigator.geolocation.getCurrentPosition(position => {
@@ -50,9 +50,10 @@ window.addEventListener('DOMContentLoaded', async function () {
                 map.flyTo([lat, lng], 16)
                 marker.openPopup();
             })
-            marker.addTo(map);
+        marker.addTo(markerClusterLayer)
   
         }
+        markerClusterLayer.addTo(map)
     })
   
     document.querySelector("#searchButton").addEventListener('click', function(){
