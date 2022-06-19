@@ -1,6 +1,10 @@
 window.addEventListener('DOMContentLoaded', async function () {
     let map = createMap(1.3521, 103.8198);
     let searchResultLayer = L.layerGroup();
+
+    let markerClusterLayer = L.markerClusterGroup(); 
+
+    markerClusterLayer.addTo(map);
     searchResultLayer.addTo(map)
   
     navigator.geolocation.getCurrentPosition(position => {
@@ -32,8 +36,8 @@ window.addEventListener('DOMContentLoaded', async function () {
             let lat = result.geocodes.main.latitude;
             let lng = result.geocodes.main.longitude;
     
-            let marker = L.marker([lat, lng]).addTo(searchResultLayer);
-  
+            // let marker = L.marker([lat, lng]).addTo(searchResultLayer);
+            let marker = L.marker([lat,lng]).addTo(markerClusterLayer);
             marker.bindPopup(`<h1>${result.name}</h1>
            <p>${result.location.address} 
            ${result.location.address_extended ? ", " + result.location.address_extended
