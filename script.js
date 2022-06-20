@@ -11,8 +11,8 @@ window.addEventListener('DOMContentLoaded', async function () {
   
       const { coords: { latitude, longitude } } = position;
       var locationIcon =  L.icon({
-          iconUrl: 'location-icons.png',
-          iconSize: [38, 50], 
+          iconUrl: 'location-icon.png',
+          iconSize: [52, 60], 
       })
       var locationMarker = new L.marker([latitude, longitude],{icon:locationIcon}).addTo(map);
 
