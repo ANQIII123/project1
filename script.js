@@ -4,22 +4,25 @@ window.addEventListener('DOMContentLoaded', async function () {
 
     let markerClusterLayer = L.markerClusterGroup(); 
 
-  
+    markerClusterLayer.addTo(map);
     searchResultLayer.addTo(map)
   
     navigator.geolocation.getCurrentPosition(position => {
   
       const { coords: { latitude, longitude } } = position;
-      var locationMarker = new L.marker([latitude, longitude], {
+      var locationIcon =  L.icon({
           iconUrl: 'locations-icons.png',
-          iconSize:     [38, 95], // size of the icon
-      }).addTo(map);
-      
+          iconSize: [38, 50], 
+      })
+      var locationMarker = new L.marker([latitude, longitude],{icon:locationIcon}).addTo(map);
+
       locationMarker.bindPopup("<h1>Here's your location!</h1>");
+
     })
-  
+    
+    //event listener for search button
     document.querySelector('#searchButton').addEventListener('click', async function () {
-  
+        getDetails()
        
         searchResultLayer.clearLayers(); 
   
@@ -27,22 +30,33 @@ window.addEventListener('DOMContentLoaded', async function () {
   
         let query = document.querySelector('#searchText').value;
         let latlng = map.getBounds().getCenter();
+
         let locations = await search(latlng.lat, latlng.lng, query, 10000);
-        console.log(location)
+    
         console.log(locations.results)
   
         for (let result of locations.results) {
   
             let lat = result.geocodes.main.latitude;
             let lng = result.geocodes.main.longitude;
-    
+            let fsqId = result.fsq_id
+            let moreDetails =  await getDetails(fsqId)
+
+            console.log(moreDetails)
+
             // let marker = L.marker([lat, lng]).addTo(searchResultLayer);
             let marker = L.marker([lat,lng]).addTo(markerClusterLayer);
+
             marker.bindPopup(`<h1>${result.name}</h1>
            <p>${result.location.address} 
            ${result.location.address_extended ? ", " + result.location.address_extended
                     : ""}</p>`)
   
+
+
+            //select for search container         
+            let searchResultElement = document.querySelector("#searchContainer")
+
             let resultElement = document.createElement('div');
             resultElement.className="search-result";
             resultElement.innerHTML = result.name;
@@ -50,6 +64,7 @@ window.addEventListener('DOMContentLoaded', async function () {
                 map.flyTo([lat, lng], 16)
                 marker.openPopup();
             })
+        searchResultElement.appendChild(resultElement)
         marker.addTo(markerClusterLayer)
   
         }
