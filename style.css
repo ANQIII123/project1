@@ -1,3 +1,7 @@
+body {
+    font-family: 'Varela Round', serif;
+}
+
 #map {
     height: 100vh;
 };
@@ -5,9 +9,76 @@
 #wholeMap{
     position:relative;
 }
+
 #searchContainer {
     position:absolute;
     z-index: 314159;
     margin-top:15px;
-    margin-left:45px;
 }
+
+
+
+#searchButton:hover {
+    background-color: #c7dde1;
+    color:rgb(74, 74, 74);
+}
+
+#searchText {
+    height: 50px;
+    width: 50%;
+    border-radius: 5%;
+    background-color: rgb(124, 124, 235);
+    /* border-style: solid;
+    border-color: rgb(118, 118, 146); */
+    border-width: 0px;
+    font-size: medium;
+    color:white;
+    margin-right:5%;
+
+}
+
+.bgimage{
+
+    height:400px;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    background-image: url('mybg.jpg');
+    margin-bottom: 2em;
+
+}
+
+.map_box{
+    margin:auto;
+    margin-top: 0em;
+    height:400px;
+    width:95%;
+    border-radius: 7%;
+    border-style: solid;
+    border-color: rgb(92, 92, 138);
+    border-width: 10px;
+
+}
+
+.result_box{
+    height:400px;
+    margin-top: 5em;
+    overflow: scroll;
+    background-color: #c7dde1;
+    width:30%;
+    border-radius: 2%;
+}
+
+.navbar-custom{
+    background-color: #c7dde1;
+}
+
+/* mystyle {
+    font-style: normal;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 48px;
+    margin:10%;
+    margin-top: 2em;
+} */
+
