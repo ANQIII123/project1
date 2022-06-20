@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', async function () {
   
       const { coords: { latitude, longitude } } = position;
       var locationIcon =  L.icon({
-          iconUrl: 'locations-icons.png',
+          iconUrl: 'location-icons.png',
           iconSize: [38, 50], 
       })
       var locationMarker = new L.marker([latitude, longitude],{icon:locationIcon}).addTo(map);
@@ -41,13 +41,13 @@ window.addEventListener('DOMContentLoaded', async function () {
             let lng = result.geocodes.main.longitude;
             let fsqId = result.fsq_id
             let moreDetails =  await getDetails(fsqId)
-
-            console.log(moreDetails)
-
+        
             // let marker = L.marker([lat, lng]).addTo(searchResultLayer);
             let marker = L.marker([lat,lng]).addTo(markerClusterLayer);
 
-            marker.bindPopup(`<h1>${result.name}</h1>
+            marker.bindPopup(
+                `<h1>${result.name}</h1>
+                 <h2>${moreDetails.data.location.address}</h2>
            <p>${result.location.address} 
            ${result.location.address_extended ? ", " + result.location.address_extended
                     : ""}</p>`)
