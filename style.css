@@ -27,7 +27,7 @@ body {
     height: 50px;
     width: 50%;
     border-radius: 5%;
-    background-color: rgb(221, 221, 249);
+    background-color: rgb(124, 124, 235);
     /* border-style: solid;
     border-color: rgb(118, 118, 146); */
     border-width: 0px;
@@ -39,7 +39,7 @@ body {
 
 .bgimage{
 
-    height:400px;
+    height:300px;
     margin:0px;
     padding:0px;
     width:100%;
@@ -65,7 +65,7 @@ body {
     margin-top: 5em;
     overflow: scroll;
     background-color: #c7dde1;
-    width:30%;
+    width: 25%;
     border-radius: 2%;
 }
 
