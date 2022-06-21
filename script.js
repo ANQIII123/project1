@@ -2,48 +2,56 @@ window.addEventListener('DOMContentLoaded', async function () {
     let map = createMap(1.3521, 103.8198);
     let searchResultLayer = L.layerGroup();
 
-    let markerClusterLayer = L.markerClusterGroup(); 
+    let markerClusterLayer = L.markerClusterGroup();
 
     markerClusterLayer.addTo(map);
     searchResultLayer.addTo(map)
-  
-    navigator.geolocation.getCurrentPosition(position => {
-  
-      const { coords: { latitude, longitude } } = position;
-      var locationIcon =  L.icon({
-          iconUrl: 'location-icon/png',
-          iconSize: [38, 50], 
-      })
-      var locationMarker = new L.marker([latitude, longitude],{icon:locationIcon}).addTo(map);
 
-      locationMarker.bindPopup("<h1>Here's your location!</h1>");
+    navigator.geolocation.getCurrentPosition(position => {
+
+        const { coords: { latitude, longitude } } = position;
+          var locationIcon =  L.icon({
+              iconUrl: 'location-icon.png',
+              iconSize: [38, 50], 
+          })
+        var locationMarker = new L.marker(
+            [latitude, longitude],
+            {
+                draggable: true,
+                autoPan: true
+            },
+            {icon:locationIcon}
+        ).addTo(map);
+
+        locationMarker.bindPopup(`<h1>Here's your location!</h1> 
+        <img src='location-icon.png'>`);
 
     })
-    
+
     //event listener for search button
     document.querySelector('#searchButton').addEventListener('click', async function () {
         getDetails()
-       
-        searchResultLayer.clearLayers(); 
-  
+
+        searchResultLayer.clearLayers();
+
         document.querySelector('#searchResults').innerHTML = "";
-  
+
         let query = document.querySelector('#searchText').value;
         let latlng = map.getBounds().getCenter();
 
         let locations = await search(latlng.lat, latlng.lng, query, 10000);
-    
+
         console.log(locations.results)
-  
+
         for (let result of locations.results) {
-  
+
             let lat = result.geocodes.main.latitude;
             let lng = result.geocodes.main.longitude;
             let fsqId = result.fsq_id
-            let moreDetails =  await getDetails(fsqId)
-        
+            let moreDetails = await getDetails(fsqId)
+
             // let marker = L.marker([lat, lng]).addTo(searchResultLayer);
-            let marker = L.marker([lat,lng]).addTo(markerClusterLayer);
+            let marker = L.marker([lat, lng]).addTo(markerClusterLayer);
 
             marker.bindPopup(
                 `<h1>${result.name}</h1>
@@ -51,31 +59,31 @@ window.addEventListener('DOMContentLoaded', async function () {
            <p>${result.location.address} 
            ${result.location.address_extended ? ", " + result.location.address_extended
                     : ""}</p>`)
-  
+
 
 
             //select for search container         
             let searchResultElement = document.querySelector("#searchContainer")
 
             let resultElement = document.createElement('div');
-            resultElement.className="search-result";
+            resultElement.className = "search-result";
             resultElement.innerHTML = result.name;
-            resultElement.addEventListener('click', function(){
-                map.flyTo([lat, lng], 16)
+            resultElement.addEventListener('click', function () {
+                map.flyTo([lat, lng], 18)
                 marker.openPopup();
             })
-        searchResultElement.appendChild(resultElement)
-        marker.addTo(markerClusterLayer)
-  
+            searchResultElement.appendChild(resultElement)
+            marker.addTo(markerClusterLayer)
+
         }
         markerClusterLayer.addTo(map)
     })
-  
-    document.querySelector("#searchButton").addEventListener('click', function(){
-   
+
+    document.querySelector("#searchButton").addEventListener('click', function () {
+
         let searchContainer = document.querySelector('#searchContainer');
-  
-        let isDisplayed =  searchContainer.style.display == 'block';
+
+        let isDisplayed = searchContainer.style.display == 'block';
         console.log(isDisplayed);
         if (isDisplayed) {
             searchContainer.style.display = 'none';
@@ -83,5 +91,5 @@ window.addEventListener('DOMContentLoaded', async function () {
             searchContainer.style.display = 'block';
         }
     });
-  })
-  
+})
+
