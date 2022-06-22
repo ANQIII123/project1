@@ -8,6 +8,8 @@ window.addEventListener('DOMContentLoaded', async function () {
         var locationIcon = L.icon({
             iconUrl: 'location-icon.png',
             iconSize: [38, 40],
+            draggable: true,
+            autoPan: true
         })
         var locationMarker = new L.marker([latitude, longitude], { icon: locationIcon }).addTo(map);
 
