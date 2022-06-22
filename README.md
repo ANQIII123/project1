@@ -14,7 +14,9 @@ User and Organization goal: This project allow users to quickly select desired r
 
 UX/UI:
 
-The 
+The app follow a modern styling and a soft tone. This gives the user a friendly feeling when interacting with the app.
+This app made use of bootstrap so that mobile users could use the app with no problems.
+
 
 FEATURES
 
@@ -35,7 +37,6 @@ Limitation:
 1. Toggle nearby on work when the filter is put on 'all'.
 2. Image of places only work when the filter is put on 'all'.
 
-
 Debugging: If there is any inconsistancy, user can reload the page.
 
 
@@ -51,3 +52,24 @@ TESTING
 8. User then click on all
 9. USer click on 'toggle nearby', this filter out the nearby places. This distance is calculated based on users' ip address.
 
+Live Link:
+
+
+credits and acknowledgement:
+
+leaflet icons and clusters:
+ https://leafletjs.com/examples/custom-icons/
+https://leafletjs.com/reference.html
+
+transparency for background images:
+https://stackoverflow.com/questions/7241341/can-i-set-an-opacity-only-to-the-background-image-of-a-div
+
+resizing buttons:
+https://stackoverflow.com/questions/11689427/resizing-a-button
+
+
+css styling:
+https://www.w3schools.com/css/default.asp
+
+bootstrap:
+https://getbootstrap.com/
