@@ -34,8 +34,8 @@ async function getsearchResultLayer(latlng, query) {  //get search result and ad
         imageList = getimagelist(image_array)
         if (imageList != undefined) {
             let marker = L.marker([lat, lng]).bindPopup(`
-        <h2>${result.name}</h2>
-        <h3>${moreDetails.data.location.address}</h3>
+        <h3>${result.name}</h3>
+        <h5>${moreDetails.data.location.address}</h5>
         <p>${result.location.address} 
            ${result.location.address_extended ? ", " + result.location.address_extended : ""}</p>
         <img src = "${imageList[0]} ">     
@@ -191,18 +191,4 @@ document.querySelector('#searchButton').addEventListener('click', async function
 
 })
 
-
-// document.querySelector("#searchButton").addEventListener('click', function () {
-
-//     let searchContainer = document.querySelector('#searchContainer');
-//     searchContainer.style.display = 'block' //added
-//     // let isDisplayed = searchContainer.style.display == 'block';
-//     // console.log(isDisplayed);
-//     // if (isDisplayed) {
-//     //     searchContainer.style.display = 'none';
-//     // } else {
-//     //     searchContainer.style.display = 'block';
-//     // }
-
-// });
 
