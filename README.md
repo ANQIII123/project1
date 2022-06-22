@@ -39,6 +39,9 @@ Limitation:
 
 Debugging: If there is any inconsistancy, user can reload the page.
 
+TECHNOLOGIES USED
+
+HTML, CSS, Javascript, Foursquare API, Leaflets API.
 
 TESTING
 
