@@ -30,7 +30,6 @@ async function getsearchResultLayer(latlng, query) {  //get search result and ad
         continue
         }
         
-
         imageList = getimagelist(image_array)
         if (imageList != undefined) {
             let marker = L.marker([lat, lng]).bindPopup(`
@@ -55,15 +54,9 @@ async function getsearchResultLayer(latlng, query) {  //get search result and ad
                 map.once('zoomend', function () {
                     marker.openPopup();
                 });
-    
             })
-
             searchResultElement.appendChild(resultElement);
-
         }
- 
-
-
     }
 
 
@@ -74,23 +67,12 @@ async function getsearchResultLayer(latlng, query) {  //get search result and ad
     console.log('location type is ' + locations.results.constructor)
 
     return locations.results // return a array with result
-
 }
-
 async function filterSearch() {
 }
 
-
-
 //event listener for search button
 document.querySelector('#searchButton').addEventListener('click', async function () {
-
-    // getDetails()
-
-    // searchResultLayer.clearLayers();
-    // bar_group.clearLayers();
-    // markerClusterLayer.clearLayers();
-    // chinese_group.clearLayers();
 
     document.querySelector('#searchResults').innerHTML = "";
     document.querySelector('#searchContainer').innerHTML = "";
@@ -101,10 +83,6 @@ document.querySelector('#searchButton').addEventListener('click', async function
     let results = await getsearchResultLayer(latlng, query);
 
     console.log('returned location type is ' + results.constructor)
-
-    // let locations = await search(latlng.lat, latlng.lng, query, 10000);
-
-    // console.log(locations.results)
 
 
     for (let result of results) {
@@ -127,8 +105,6 @@ document.querySelector('#searchButton').addEventListener('click', async function
                      <p>${result.location.address} 
                         ${result.location.address_extended ? ", " + result.location.address_extended
                         : ""}</p>`)
-
-
             }
 
 
@@ -141,9 +117,6 @@ document.querySelector('#searchButton').addEventListener('click', async function
                      <p>${result.location.address} 
                         ${result.location.address_extended ? ", " + result.location.address_extended
                         : ""}</p>`)
-
-
-
             }
 
 
@@ -157,15 +130,9 @@ document.querySelector('#searchButton').addEventListener('click', async function
                      <p>${result.location.address} 
                         ${result.location.address_extended ? ", " + result.location.address_extended
                         : ""}</p>`)
-
                 break
             }
-
-
-
         }
-
-
     }
     console.log('vegetarian are :' + vege_group)
 
@@ -173,7 +140,6 @@ document.querySelector('#searchButton').addEventListener('click', async function
         'All': markerClusterLayer,
         'Vegetarian': vege_group,
         'bar': bar_group
-
     }
 
     if (layersControl != undefined) {
@@ -186,9 +152,6 @@ document.querySelector('#searchButton').addEventListener('click', async function
     let searchContainer = document.querySelector('#searchContainer');
 
     searchContainer.style.display = 'block'
-
-
-
 })
 
 

@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', async function () {
         var locationMarker = new L.marker([latitude, longitude], { icon: locationIcon }).addTo(map);
 
         locationMarker.bindPopup("<h1>Here's your location!</h1>");
-
     })
 
 
@@ -28,7 +27,5 @@ window.addEventListener('DOMContentLoaded', async function () {
             map.addLayer(nearby_group);
             map.removeLayer(markerClusterLayer)
             }
-
     })
-
 })
