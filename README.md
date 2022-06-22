@@ -56,7 +56,7 @@ TESTING
 9. USer click on 'toggle nearby', this filter out the nearby places. This distance is calculated based on users' ip address.
 
 Live Link:
-
+https://62b33b6429c2741bf36608ac--superb-pavlova-6c71ac.netlify.app/?
 
 credits and acknowledgement:
 
