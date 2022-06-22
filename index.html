@@ -29,14 +29,30 @@
 
 <body style="background-color:#f6f4f4">
 
+<div class="background">
+  <div class="row" style="margin: 2em;">
+    <div class="col-sm-12">
 
-  <div class="bgimage">
-    
+      <p style="margin-top:2em">Search something!</p>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input type="text" id="searchText" placeholder="Browse for foods!" />
+        <button type="button" class="btn btn-outline-dark" id="searchButton">Search</button>
+        <div id="searchResults"></div>
+      </form>
+
+      <button id="toggle-btn">Toggle Nearby</button>
+
+
+      <!-- <mystyle>Your Search Result</mystyle> -->
+
+    </div>
+
   </div>
 
   <div class="row">
 
-    <div class="col-sm-8">
+    <div class="col-em-12">
 
 
       <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,27 +84,13 @@
 
 
       <div class="map_box" id="map">
-
+        <div class="result_box" id="searchContainer"></div>
       </div>
 
 
     </div>
 
-    <div class="col-sm-4" style="padding-right:5%">
 
-      <p style="margin-top:2em">Search something!</p>
-      
-      <form class="form-inline my-2 my-lg-0">
-        <input type="text" id="searchText" placeholder="Browse for foods!" />
-        <button type="button" class="btn btn-outline-dark" id="searchButton">Search</button>
-        <div id="searchResults"></div>
-      </form>
-
-      <!-- <mystyle>Your Search Result</mystyle> -->
-
-      <div class="result_box" id="searchContainer">
-      </div>
-    </div>
 
 
   </div>
@@ -121,7 +123,9 @@
 
   <!-- Normal  javascript -->
   <script src="script.js"></script>
+  <script src="result_image.js"></script>
+  <script src="search.js"></script>
+</div>
 </body>
 
 </html>
-

@@ -13,10 +13,16 @@ body {
 #searchContainer {
     position:absolute;
     z-index: 314159;
-    margin-top:15px;
+    top:80px;
 }
 
-
+@media (max-width:1000px){
+    #searchContainer {
+        position:absolute;
+        z-index: 314159;
+        top:450px;
+    }
+  }
 
 #searchButton:hover {
     background-color: #c7dde1;
@@ -37,14 +43,11 @@ body {
 
 }
 
-.bgimage{
+.background{
 
-    height:300px;
-    margin:0px;
-    padding:0px;
-    width:100%;
     background-image: url('mybg.jpg');
-    margin-bottom: 2em;
+    opacity: .5;
+    height: 100%;
 
 }
 
@@ -62,15 +65,29 @@ body {
 
 .result_box{
     height:400px;
-    margin-top: 5em;
     overflow: scroll;
-    background-color: #c7dde1;
-    width: 25%;
+    background-color: #97d9e452;
+    width:30%;
     border-radius: 2%;
+    min-width: 300px;
 }
 
 .navbar-custom{
     background-color: #c7dde1;
+}
+
+res_img_box{
+    height: 300px;
+}
+
+.search-result{
+    background-color: #f1f1f1;
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 200;
 }
 
 /* mystyle {

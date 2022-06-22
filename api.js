@@ -32,6 +32,6 @@ async function getDetails(fsqId){
       "Accept":"application/json",
     }
   })
-  console.log(response);
+  // console.log('getDetails return:'+response);
   return response
 }
