@@ -24,7 +24,7 @@
   <!-- google font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
 
-  <title>Document</title>
+  <title>SG foods</title>
 </head>
 
 <body style="background-color:#f6f4f4">
@@ -41,6 +41,14 @@
         <button type="button" class="btn btn-outline-dark" id="searchButton">Search</button>
         <div id="searchResults"></div>
       </form>
+      
+      <!-- <div>
+
+        <button id="reservation" style="background-color: rgb(176, 228, 250);" type="button">
+          I am a blue button! Click me!
+          </button>
+
+      </div> -->
 
       <button id="toggle-btn" style="width:150px;height:30px; font-size:small;" >Toggle Nearby</button>
 
@@ -57,15 +65,28 @@
 
       <div class="map_box" id="map">
         <div class="result_box" id="searchContainer"></div>
-      </div>
 
+      </div>
 
     </div>
 
+    <div style="background-color: aliceblue;border-radius: 2%;margin:2%">
+      <form action="/action_page.php" id=""resForm>
+        <h2>Reservation</h2>
+        <label for="fname">Your full name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="e.g. Aaron Tan"><br>
+        <label for="phno">Phone number:</label><br>
+        <input type="text" id="phno" name="phno" placeholder="e.g. 81234567"><br>
+        <label for="foodPlaceName">Restaurant name:</label><br>
+        <input type="text" id="foodPlaceName name="foodPlaceName" placeholder="e.g. Japramen"><br>
+       <button type="button" id="btnReserve" onclick="alert('Reservation submitted!')" class="btn btn-outline-primary">Submit</button>
+
+      </form> 
+        </button>
+    </div>
 
 
-
-  </div>
+   </div>
 
 
   </div>
